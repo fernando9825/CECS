@@ -45,18 +45,18 @@
                         </div>
                     </div>
                 </div>
-                <p>
+               <%-- <p>
                     <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Registrarse</asp:HyperLink>
                     si no tiene una cuenta local.
-                </p>
+                </p>--%>
             </section>
         </div>
 
-        <div class="col-md-4">
+        <%--<div class="col-md-4">
             <section id="socialLoginForm">
                 <uc:openauthproviders runat="server" id="OpenAuthLogin" />
             </section>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>
 
