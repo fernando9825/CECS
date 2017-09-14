@@ -42,6 +42,10 @@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Iniciar sesión" CssClass="btn btn-default" />
+                            <asp:Label ID="Label1" runat="server" Text="info"></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                         </div>
                     </div>
                 </div>
