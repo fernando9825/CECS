@@ -17,9 +17,12 @@ public class conexion
 
     private string usuario;
     private string pass;
+
+    //Variables para manejar el login y variables de sesion
     public bool autenticacion = false;
     public string usubd;
     public string passbd;
+    public string nombrecompleto;
 
     //constructor
     public conexion()
@@ -109,6 +112,7 @@ public class conexion
                 //passbd = dataReader["password"].ToString();
                 usubd = dataReader.GetString(5);
                 passbd = dataReader.GetString(6);
+                nombrecompleto = dataReader.GetString(1) + " " + dataReader.GetString(2);
                 dataReader.Close();
             }
         }

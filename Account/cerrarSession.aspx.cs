@@ -5,21 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Default : Page
+public partial class Account_cerrarSession : System.Web.UI.Page
 {
-    
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
             if (Session["persona"] != null)
             {
-                
-                Response.Redirect("/Notas/notas.aspx");
+                Session.Remove("persona");
+                Session.Remove("usuario");
+                Session.Remove("password");
+                Response.Redirect("../Default.aspx");
             }
             else
             {
-                Session["persona"] = null;
+                Response.Redirect("../Default.aspx");
             }
         }
         catch (Exception)

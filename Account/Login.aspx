@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Account_Login" Async="true" %>
 
-<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
+
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>
@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
-                    <h4>Utilice una cuenta local para iniciar sesión.</h4>
+                    <h4>Utilice su carnet y contraseña suministrado por el maestro(a) para iniciar sesión.</h4>
                     <hr />
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
@@ -31,21 +31,17 @@
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="El campo de contraseña es obligatorio." />
                         </div>
                     </div>
-                    <div class="form-group">
+                   <%-- <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <div class="checkbox">
-                                <asp:CheckBox runat="server" ID="RememberMe" />
+                                <asp:CheckBox runat="server" ID="RememberMe" OnCheckedChanged="RememberMe_CheckedChanged" />
                                 <asp:Label runat="server" AssociatedControlID="RememberMe">¿Recordar cuenta?</asp:Label>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Iniciar sesión" CssClass="btn btn-default" />
-                            <asp:Label ID="Label1" runat="server" Text="info"></asp:Label>
-                            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                         </div>
                     </div>
                 </div>

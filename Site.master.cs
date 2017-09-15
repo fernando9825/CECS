@@ -66,7 +66,26 @@ public partial class SiteMaster : MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        try
+        {
+            if (Session["persona"].ToString() != null)
+            {
+                IniciarSesion.Visible = false;
+                CerrarSession.Visible = true;
+            }
+            else
+            {
+                Session["persona"] = null;
+                IniciarSesion.Visible = true;
+                CerrarSession.Visible = false;
+            }
+        }
+        catch (Exception)
+        {
 
+        }
+        
+           
     }
 
     protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
