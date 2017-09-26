@@ -10,6 +10,7 @@ using System.Web;
 public class conexion
 {
     private MySqlConnection connection;
+    public string connectionString;
     private string server;
     private string database;
     private string uid;
@@ -33,11 +34,29 @@ public class conexion
     //Dandole los valores a las variables.
     private void Iniciar()
     {
+        /*
+        //Configuración para XAMP
         server = "127.0.0.1";
         database = "admin_academica";
         uid = "root"; //Username
         password = ""; //password
-        string connectionString;
+        
+
+        //Configuracion para dbfree.net
+        server = "db4free.net";
+        database = "admin_academica";
+        uid = "fernando9825"; //Username
+        password = "982505"; //password
+
+        */
+
+        //Configuracion para Smarterasp.net
+        server = "mysql5005.smarterasp.net";
+        database = "db_a2b143_fer9825";
+        uid = "a2b143_fer9825"; //Username
+        password = "982505va"; //password
+
+
         connectionString = "SERVER=" + server + ";" + "DATABASE=" +
         database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
         //connectionString = @"Server=sql3.freemysqlhosting.net; Database=sql3193965; Uid=sql3193965; Pwd=VZrEn2fStQ; Port=3306;";
@@ -47,7 +66,7 @@ public class conexion
 
 
     //Métodos
-
+   
 
 
     //Abrir la conección
