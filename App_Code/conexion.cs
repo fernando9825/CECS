@@ -18,12 +18,15 @@ public class conexion
 
     private string usuario;
     private string pass;
+    
 
     //Variables para manejar el login y variables de sesion
     public bool autenticacion = false;
     public string usubd;
     public string passbd;
     public string nombrecompleto;
+    public String seccioncad;
+    public bool seccion;
 
     //constructor
     public conexion()
@@ -34,14 +37,14 @@ public class conexion
     //Dandole los valores a las variables.
     private void Iniciar()
     {
-        /*
-        //Configuración para XAMP
-        server = "127.0.0.1";
-        database = "admin_academica";
-        uid = "root"; //Username
-        password = ""; //password
         
-
+        //Configuración para XAMP
+        //server = "127.0.0.1";
+        //database = "admin_academica";
+        //uid = "root"; //username
+        //password = ""; //password
+        
+        /*
         //Configuracion para dbfree.net
         server = "db4free.net";
         database = "admin_academica";
@@ -50,12 +53,13 @@ public class conexion
 
         */
 
+        
         //Configuracion para Smarterasp.net
         server = "mysql5005.smarterasp.net";
         database = "db_a2b143_fer9825";
         uid = "a2b143_fer9825"; //Username
         password = "982505va"; //password
-
+        
 
         connectionString = "SERVER=" + server + ";" + "DATABASE=" +
         database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -116,7 +120,7 @@ public class conexion
 
     public void IniciarSesion(string usuario, string password)
     {
-        string query = "SELECT * FROM maestros WHERE usuario = '" + usuario + "'";
+        string query = "SELECT * FROM alumnos WHERE carnet = '" + usuario + "'";
         bool conec = OpenConnection();
 
         if (conec == true)
@@ -129,10 +133,19 @@ public class conexion
             {
                 //usubd = dataReader["usuario"].ToString();
                 //passbd = dataReader["password"].ToString();
-                usubd = dataReader.GetString(5);
-                passbd = dataReader.GetString(6);
+                usubd = dataReader.GetString(0);
+                passbd = dataReader.GetString(8);
+                seccioncad = dataReader.GetString(7);
                 nombrecompleto = dataReader.GetString(1) + " " + dataReader.GetString(2);
                 dataReader.Close();
+
+                if (seccioncad.Contains("Técnico"))
+                {
+                    seccion = true;
+                }else if (seccioncad.Contains("General"))
+                {
+                    seccion = false;
+                }
             }
         }
 

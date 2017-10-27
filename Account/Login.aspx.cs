@@ -39,26 +39,48 @@ public partial class Account_Login : Page
             a.IniciarSesion(txtUsuario, txtPassword);
         
             a.CloseConnection();
-            if(a.autenticacion == true)
+        if (a.autenticacion == true)
+        {
+            try
             {
-                try
-                {
-                    Session["persona"] = a.nombrecompleto;
-                    Session["usuario"] = a.usubd;
-                    Session["password"] = a.passbd;
+                Session["persona"] = a.nombrecompleto;
+                Session["usuario"] = a.usubd;
+                Session["password"] = a.passbd;
+                Session["seccion"] = a.seccion;
 
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                Response.Redirect("../Notas/notas.aspx");
             }
-            else
+            catch (Exception)
             {
-            
+
+                throw;
             }
+
+            try
+            {
+                //Determinar si es General o Tecnico, para mostrar diferentes páginas web
+                if (a.seccion == true)
+                {
+                    //Aca si es tecnico
+                    Response.Redirect("../Notas/notasTecnico.aspx");
+                }
+                else
+                {
+                    //aca si es general
+                    Response.Redirect("../Notas/notasGeneral.aspx");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        else
+        {
+
+        }
                 //////if (IsValid)
                 //////{
                 //////    // Validate the user password

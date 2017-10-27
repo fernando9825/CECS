@@ -14,8 +14,17 @@ public partial class _Default : Page
         {
             if (Session["persona"] != null)
             {
+                if (Session["seccion"].Equals(true))
+                {
+                    //Si es de tecnico, entonces no tiene nada que hacer aqui
+                    Response.Redirect("../Notas/notasTecnico.aspx");
+                }
+                else
+                {
+                    //Se asume que es de general...
+                    Response.Redirect("/Notas/notasGeneral.aspx");
+                }
                 
-                Response.Redirect("/Notas/notas.aspx");
             }
             else
             {

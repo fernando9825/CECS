@@ -27,3 +27,56 @@ textarea {
         padding: 0;
     }
 }
+
+/*  Author     : Vinay
+    Description: Responsive GridView
+*/
+
+/* Force gridview to not be like gridview anymore */
+#no-more-gridView table,
+#no-more-gridView thead,
+#no-more-gridView tbody,
+#no-more-gridView th,
+#no-more-gridView td,
+#no-more-gridView tr {
+    display: block;
+}
+/* Hide table headers (but not display: none;, for accessibility) */
+#no-more-gridView .table_column_head > * {
+    display: none;
+}
+
+#no-more-gridView tr {
+    all: revert;
+    border: 2px solid #ccc;
+    height: auto !important;
+}
+
+#no-more-gridView td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: left;
+    padding-bottom: 1em;
+}
+
+    #no-more-gridView td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    /*
+    Label the data
+    */
+    #no-more-gridView td:before {
+        content: attr(data-title);
+    }
